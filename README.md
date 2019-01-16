@@ -9,6 +9,7 @@
 - [Introduction](#INTRODUCTION)
 - [Prerequis](#PREREQUIS)
 - [Installation](#INSTALLATION)
+- [Utilisation](#UTILISATION)
 - [License](#LICENSE)
 
 
@@ -31,6 +32,15 @@ Installer [Docker](https://www.docker.com)
 
 ```
 docker run -ti --rm --name nikto -v ${HOME}:/home/nikto alexandreoda/nikto
+```
+
+
+## UTILISATION
+
+Pour scanner un seveur copier/coller dans un terminal
+
+```
+sudo service tor start && sudo service privoxy start && nikto  -h http://lesite.com -useproxy
 ```
 
 

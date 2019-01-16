@@ -40,7 +40,9 @@ echo "listen-address localhost:8118" | sudo tee -a /etc/privoxy/config && \
 echo "forward-socks5 / localhost:9050 ." | sudo tee -a /etc/privoxy/config && \
 echo "forward-socks4 / localhost:9050 ." | sudo tee -a /etc/privoxy/config && \
 echo "forward-socks4a / localhost:9050 ." | sudo tee -a /etc/privoxy/config && \
-echo "SOCKSPort localhost:9050" | sudo tee -a /etc/tor/torcc
+echo "SOCKSPort localhost:9050" | sudo tee -a /etc/tor/torcc && \
+sudo sed -i 's|#PROXYHOST=127.0.0.1|PROXYHOST=127.0.0.1|g' /etc/nikto.conf && \
+sudo sed -i 's|#PROXYPORT=8080|PROXYPORT=8118|g' /etc/nikto.conf
 
 # NETTOYAGE
 RUN sudo apt-get --purge autoremove -y \
