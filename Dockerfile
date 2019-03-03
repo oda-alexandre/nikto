@@ -1,6 +1,10 @@
 FROM debian:stretch-slim
 
-MAINTAINER https://oda-alexandre.github.io
+MAINTAINER https://oda-alexandre.com
+
+# VARIABLES
+ENV USER nikto
+ENV DEBIAN_FRONTEND noninteractive
 
 # INSTALLATION DES PREREQUIS
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -14,24 +18,24 @@ sudo \
 tor \
 privoxy \
 proxychains \
-wget
+wget && \
 
 # MODIFICATION DU FICHIER /etc/apt/sources.list AVEC LES REPOS kali-rolling contrib non-free
-RUN echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
+echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
 echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
-wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add
+wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add && \
 
 # INSTALLATION DE L'APPLICATION
-RUN apt-get update && apt-get install --no-install-recommends -y \
-nikto
+apt-get update && apt-get install --no-install-recommends -y \
+nikto && \
 
 # AJOUT UTILISATEUR
-RUN useradd -d /home/nikto -m nikto && \
-passwd -d nikto && \
-adduser nikto sudo
+useradd -d /home/${USER} -m ${USER} && \
+passwd -d ${USER} && \
+adduser ${USER} sudo
 
 # SELECTION UTILISATEUR
-USER nikto
+USER ${USER}
 
 # CONFIGURATION TOR & PRIVOXY
 RUN sudo rm -f /etc/privoxy/config && \
@@ -53,7 +57,7 @@ sudo rm -rf /var/cache/apt/archives/* && \
 sudo rm -rf /var/lib/apt/lists/*
 
 # SELECTION ESPACE DE TRAVAIL
-WORKDIR /home/nikto
+WORKDIR /home/${USER}
 
 # COMMANDE AU DEMARRAGE DU CONTENEUR
 CMD /bin/bash

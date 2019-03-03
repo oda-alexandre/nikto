@@ -1,11 +1,11 @@
 # NIKTO
 
-![nikto](https://raw.githubusercontent.com/oda-alexandre/nikto/master/img/logo-nikto.png) ![docker](https://raw.githubusercontent.com/oda-alexandre/nikto/master/img/logo-docker.png)
+[![dockeri.co](https://dockeri.co/image/alexandreoda/nikto)](https://hub.docker.com/r/alexandreoda/nikto)
 
 
 ## INDEX
 
-- [Build Docker](#BUILD)
+- [Badges](#BADGES)
 - [Introduction](#INTRODUCTION)
 - [Prerequis](#PREREQUIS)
 - [Installation](#INSTALLATION)
@@ -13,14 +13,21 @@
 - [License](#LICENSE)
 
 
-## BUILD DOCKER
+## BADGES
 
-[![nikto docker build](https://img.shields.io/docker/build/alexandreoda/nikto.svg)](https://hub.docker.com/r/alexandreoda/nikto)
+[![version](https://images.microbadger.com/badges/version/alexandreoda/nikto.svg)](https://microbadger.com/images/alexandreoda/nikto)
+[![size](https://images.microbadger.com/badges/image/alexandreoda/nikto.svg)](https://microbadger.com/images/alexandreoda/nikto")
+[![build](https://img.shields.io/docker/build/alexandreoda/nikto.svg)](https://hub.docker.com/r/alexandreoda/nikto)
+[![automated](https://img.shields.io/docker/automated/alexandreoda/nikto.svg)](https://hub.docker.com/r/alexandreoda/nikto)
 
 
 ## INTRODUCTION
 
-Ce repository contient le fichier Dockerfile de [nikto](https://cirt.net/Nikto2) pour [docker](https://www.docker.com), mis à jour automatiquement dans le [docker hub](https://hub.docker.com/r/alexandreoda/nikto/) public.
+Ce repository contient le fichier Dockerfile de
+
+- [nikto](https://cirt.net/Nikto2)
+
+Mis à jour automatiquement dans le [docker hub public](https://hub.docker.com/r/alexandreoda/nikto).
 
 
 ## PREREQUIS
@@ -37,10 +44,8 @@ docker run -ti --rm --name nikto -v ${HOME}:/home/nikto alexandreoda/nikto
 
 ## UTILISATION
 
-Pour scanner un seveur copier/coller dans un terminal
-
 ```
-sudo service tor start && sudo service privoxy start && nikto  -h http://lesite.com -useproxy
+sudo service tor start && sudo service privoxy start && nikto -h http://lesite.com -useproxy
 ```
 
 
