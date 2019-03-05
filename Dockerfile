@@ -4,6 +4,7 @@ MAINTAINER https://oda-alexandre.com
 
 # VARIABLES
 ENV USER nikto
+ENV PORTS 9999
 ENV DEBIAN_FRONTEND noninteractive
 
 # INSTALLATION DES PREREQUIS
@@ -58,6 +59,9 @@ sudo apt-get autoclean -y && \
 sudo rm /etc/apt/sources.list && \
 sudo rm -rf /var/cache/apt/archives/* && \
 sudo rm -rf /var/lib/apt/lists/*
+
+# OUVERTURE DE PORTS
+EXPOSE ${PORTS}
 
 # COMMANDE AU DEMARRAGE DU CONTENEUR
 CMD /bin/bash
