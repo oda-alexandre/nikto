@@ -37,6 +37,9 @@ adduser ${USER} sudo
 # SELECTION UTILISATEUR
 USER ${USER}
 
+# SELECTION ESPACE DE TRAVAIL
+WORKDIR /home/${USER}
+
 # CONFIGURATION TOR & PRIVOXY
 RUN sudo rm -f /etc/privoxy/config && \
 sudo rm -f /etc/tor/torcc && \
@@ -55,9 +58,6 @@ sudo apt-get autoclean -y && \
 sudo rm /etc/apt/sources.list && \
 sudo rm -rf /var/cache/apt/archives/* && \
 sudo rm -rf /var/lib/apt/lists/*
-
-# SELECTION ESPACE DE TRAVAIL
-WORKDIR /home/${USER}
 
 # COMMANDE AU DEMARRAGE DU CONTENEUR
 CMD /bin/bash
