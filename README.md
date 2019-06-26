@@ -1,6 +1,6 @@
 # NIKTO
 
-[![dockeri.co](https://dockeri.co/image/alexandreoda/nikto)](https://hub.docker.com/r/alexandreoda/nikto)
+<img src="https://www.novainfosec.com/wp-content/uploads/2012/07/nikto-162x300.png" />
 
 
 ## INDEX
@@ -15,10 +15,7 @@
 
 ## BADGES
 
-[![version](https://images.microbadger.com/badges/version/alexandreoda/nikto.svg)](https://microbadger.com/images/alexandreoda/nikto)
-[![size](https://images.microbadger.com/badges/image/alexandreoda/nikto.svg)](https://microbadger.com/images/alexandreoda/nikto")
-[![build](https://img.shields.io/docker/build/alexandreoda/nikto.svg)](https://hub.docker.com/r/alexandreoda/nikto)
-[![automated](https://img.shields.io/docker/automated/alexandreoda/nikto.svg)](https://hub.docker.com/r/alexandreoda/nikto)
+[![pipeline status](https://gitlab.com/oda-alexandre/nikto/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/nikto/commits/master)
 
 
 ## INTRODUCTION
