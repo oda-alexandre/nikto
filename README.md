@@ -7,9 +7,9 @@
 
 - [Badges](#BADGES)
 - [Introduction](#INTRODUCTION)
-- [Prerequis](#PREREQUIS)
-- [Installation](#INSTALLATION)
-- [Utilisation](#UTILISATION)
+- [Prerequisites](#PREREQUISITESITES)
+- [Install](#INSTALL)
+- [Use](#USE)
 - [License](#LICENSE)
 
 
@@ -20,26 +20,32 @@
 
 ## INTRODUCTION
 
-Ce repository contient le fichier Dockerfile de
+Docker image of :
 
 - [nikto](https://cirt.net/Nikto2)
 
-Mis à jour automatiquement dans le [docker hub public](https://hub.docker.com/r/alexandreoda/nikto).
+Continuous integration on :
+
+- [gitlab](https://gitlab.com/oda-alexandre/nikto/pipelines)
+
+Automatically updated on :
+
+- [docker hub public](https://hub.docker.com/r/alexandreoda/nikto)
 
 
-## PREREQUIS
+## PREREQUISITES
 
-Installer [docker](https://www.docker.com)
+Use [docker](https://www.docker.com)
 
 
-## INSTALLATION
+## INSTALL
 
 ```
 docker run -ti --rm --name nikto -v ${HOME}:/home/nikto alexandreoda/nikto
 ```
 
 
-## UTILISATION
+## USE
 
 ```
 sudo service tor start && sudo service privoxy start && nikto -h http://lesite.com -useproxy
@@ -48,4 +54,4 @@ sudo service tor start && sudo service privoxy start && nikto -h http://lesite.c
 
 ## LICENSE
 
-[![GPLv3+](http://gplv3.fsf.org/gplv3-127x51.png)](https://github.com/oda-alexandre/nikto/blob/master/LICENSE)
+[![GPLv3+](http://gplv3.fsf.org/gplv3-127x51.png)](https://gitlab.com/oda-alexandre/nikto/blob/master/LICENSE)

@@ -1,5 +1,7 @@
+# IMAGE TO USE
 FROM debian:stretch-slim
 
+# MAINTAINER
 MAINTAINER https://www.oda-alexandre.com/
 
 # VARIABLES
@@ -7,7 +9,7 @@ ENV USER nikto
 ENV PORTS 9999
 ENV DEBIAN_FRONTEND noninteractive
 
-# INSTALLATION DES PREREQUIS
+# INSTALL PACKAGES
 RUN apt-get update && apt-get install --no-install-recommends -y \
 ca-certificates \
 apt-transport-https \
@@ -21,27 +23,27 @@ privoxy \
 proxychains \
 wget && \
 
-# MODIFICATION DU FICHIER /etc/apt/sources.list AVEC LES REPOS kali-rolling contrib non-free
+# CHANGE OF FILE /etc/apt/sources.list WITH REPOS kali-rolling contrib non-free
 echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
 echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
 wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add && \
 
-# INSTALLATION DE L'APPLICATION
+# INSTALL APP
 apt-get update && apt-get install --no-install-recommends -y \
 nikto && \
 
-# AJOUT UTILISATEUR
+# ADD USER
 useradd -d /home/${USER} -m ${USER} && \
 passwd -d ${USER} && \
 adduser ${USER} sudo
 
-# SELECTION UTILISATEUR
+# SELECT USER
 USER ${USER}
 
-# SELECTION ESPACE DE TRAVAIL
+# SELECT WORKING SPACE
 WORKDIR /home/${USER}
 
-# CONFIGURATION TOR & PRIVOXY
+# CONFIG TOR & PRIVOXY
 RUN sudo rm -f /etc/privoxy/config && \
 sudo rm -f /etc/tor/torcc && \
 echo "listen-address localhost:8118" | sudo tee -a /etc/privoxy/config && \
@@ -52,7 +54,7 @@ echo "SOCKSPort localhost:9050" | sudo tee -a /etc/tor/torcc && \
 sudo sed -i 's|#PROXYHOST=127.0.0.1|PROXYHOST=127.0.0.1|g' /etc/nikto.conf && \
 sudo sed -i 's|#PROXYPORT=8080|PROXYPORT=8118|g' /etc/nikto.conf
 
-# NETTOYAGE
+# CLEANING
 RUN sudo apt-get --purge autoremove -y \
 wget && \
 sudo apt-get autoclean -y && \
@@ -60,8 +62,8 @@ sudo rm /etc/apt/sources.list && \
 sudo rm -rf /var/cache/apt/archives/* && \
 sudo rm -rf /var/lib/apt/lists/*
 
-# OUVERTURE DE PORTS
+# OPENING PORTS
 EXPOSE ${PORTS}
 
-# COMMANDE AU DEMARRAGE DU CONTENEUR
-CMD /bin/bash
+# START THE CONTAINER
+CMD /bin/bash \
