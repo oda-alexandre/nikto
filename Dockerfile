@@ -48,6 +48,8 @@ echo "forward-socks5 / localhost:9050 ." | sudo tee -a /etc/privoxy/config && \
 echo "forward-socks4 / localhost:9050 ." | sudo tee -a /etc/privoxy/config && \
 echo "forward-socks4a / localhost:9050 ." | sudo tee -a /etc/privoxy/config && \
 echo "SOCKSPort localhost:9050" | sudo tee -a /etc/tor/torcc
+
+RUN echo -e '\033[36;1m ******* CONFIG APP ******** \033[0m' && \
 sudo sed -i 's|#PROXYHOST=127.0.0.1|PROXYHOST=127.0.0.1|g' /etc/nikto.conf && \
 sudo sed -i 's|#PROXYPORT=8080|PROXYPORT=8118|g' /etc/nikto.conf
 
