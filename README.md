@@ -1,6 +1,6 @@
 # NIKTO
 
-<img src="https://www.novainfosec.com/wp-content/uploads/2012/07/nikto-162x300.png" />
+<img src="https://www.novainfosec.com/wp-content/uploads/2012/07/nikto-162x300.png" width="200" height="200"/>
 
 
 ## INDEX
