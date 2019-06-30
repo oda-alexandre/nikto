@@ -1,10 +1,7 @@
-# IMAGE TO USE
 FROM debian:stretch-slim
 
-# MAINTAINER
 MAINTAINER https://www.oda-alexandre.com/
 
-# VARIABLES
 ENV USER nikto
 ENV PORTS 9999
 ENV DEBIAN_FRONTEND noninteractive
@@ -21,16 +18,16 @@ sudo \
 tor \
 privoxy \
 proxychains \
-wget && \
+wget
 
 RUN echo -e '\033[36;1m ******* ADD contrib non-free IN sources.list ******** \033[0m' && \
 echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
 echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
-wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add && \
+wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add
 
 RUN echo -e '\033[36;1m ******* INSTALL APP ******** \033[0m' && \
 apt-get update && apt-get install --no-install-recommends -y \
-nikto && \
+nikto
 
 RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
 useradd -d /home/${USER} -m ${USER} && \
@@ -43,8 +40,8 @@ USER ${USER}
 RUN echo -e '\033[36;1m ******* SELECT WORKING SPACE ******** \033[0m'
 WORKDIR /home/${USER}
 
-RUN echo -e '\033[36;1m ******* CONFIG TOR & PRIVOXY ******** \033[0m'
-RUN sudo rm -f /etc/privoxy/config && \
+RUN echo -e '\033[36;1m ******* CONFIG TOR & PRIVOXY ******** \033[0m' && \
+sudo rm -f /etc/privoxy/config && \
 sudo rm -f /etc/tor/torcc && \
 echo "listen-address localhost:8118" | sudo tee -a /etc/privoxy/config && \
 echo "forward-socks5 / localhost:9050 ." | sudo tee -a /etc/privoxy/config && \
