@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-MAINTAINER https://www.oda-alexandre.com/
+LABEL authors="https://www.oda-alexandre.com/"
 
 ENV USER nikto
 ENV PORTS 9999
