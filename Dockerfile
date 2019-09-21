@@ -7,7 +7,7 @@ ENV PORTS 9999
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
-apt-get update && apt-get install --no-install-recommends -y \
+apt update && apt install --no-install-recommends -y \
 ca-certificates \
 apt-transport-https \
 gnupg \
@@ -26,7 +26,7 @@ echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> 
 wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add
 
 RUN echo -e '\033[36;1m ******* INSTALL APP ******** \033[0m' && \
-apt-get update && apt-get install --no-install-recommends -y \
+apt update && apt install --no-install-recommends -y \
 nikto
 
 RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
