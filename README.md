@@ -1,15 +1,16 @@
 # NIKTO
 
-<img src="https://www.novainfosec.com/wp-content/uploads/2012/07/nikto-162x300.png" width="200" height="200"/>
+<img src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904458/unnamed.png" width="200" height="200"/>
 
 ## INDEX
 
-- [Badges](#BADGES)
-- [Introduction](#INTRODUCTION)
-- [Prerequisites](#PREREQUISITESITES)
-- [Install](#INSTALL)
-- [Use](#USE)
-- [License](#LICENSE)
+- [NIKTO](#nikto)
+  - [INDEX](#index)
+  - [BADGES](#badges)
+  - [INTRODUCTION](#introduction)
+  - [PREREQUISITES](#prerequisites)
+  - [INSTALL](#install)
+  - [LICENSE](#license)
 
 ## BADGES
 
