@@ -19,23 +19,18 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   tor \
   privoxy \
   proxychains \
-  wget \
-  && \
-  echo -e '\033[36;1m ******* ADD contrib non-free IN sources.list ******** \033[0m' && \
+  wget && \
+  rm -rf /var/lib/apt/lists/*
+
+RUN echo -e '\033[36;1m ******* ADD contrib non-free IN sources.list ******** \033[0m' && \
   echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
   echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
   wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add && \
-  sudo apt-get --purge autoremove -y wget \
-  && \
-  echo -e '\033[36;1m ******* INSTALL APP ******** \033[0m' && \
+  sudo apt-get --purge autoremove -y wget
+  
+RUN echo -e '\033[36;1m ******* INSTALL APP ******** \033[0m' && \
   apt-get update && apt-get install --no-install-recommends -y \
-  nikto \
-  && \
-  echo -e '\033[36;1m ******* CLEANING ******** \033[0m' && \
-  apt-get --purge autoremove -y && \
-  apt-get autoclean -y && \
-  rm /etc/apt/sources.list && \
-  rm -rf /var/cache/apt/archives/* && \
+  nikto && \
   rm -rf /var/lib/apt/lists/*
 
 RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
