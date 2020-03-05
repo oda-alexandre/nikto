@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  nikto:
+    container_name: nikto
+    image: alexandreoda/nikto
+    restart: no
+    privileged: false
+    volumes:
+      - "${HOME}:/home/nikto"
