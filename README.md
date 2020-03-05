@@ -41,7 +41,10 @@ Use [docker](https://www.docker.com)
 ### DOCKER RUN
 
 ```\
-docker  run -ti --rm --name nikto -v ${HOME}:/home/nikto alexandreoda/nikto
+docker run -ti --rm \
+--name nikto \
+-v ${HOME}:/home/nikto \
+alexandreoda/nikto
 ```
 
 ### DOCKER COMPOSE
