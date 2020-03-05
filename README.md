@@ -10,6 +10,8 @@
   - [INTRODUCTION](#introduction)
   - [PREREQUISITES](#prerequisites)
   - [INSTALL](#install)
+    - [DOCKER RUN](#docker-run)
+    - [DOCKER COMPOSE](#docker-compose)
   - [LICENSE](#license)
 
 ## BADGES
@@ -24,7 +26,7 @@ Docker image of :
 
 Continuous integration on :
 
-- [gitlab](https://gitlab.com/oda-alexandre/nikto/pipelines)
+- [gitlab pipelines](https://gitlab.com/oda-alexandre/nikto/pipelines)
 
 Automatically updated on :
 
@@ -36,11 +38,25 @@ Use [docker](https://www.docker.com)
 
 ## INSTALL
 
-```docker run -ti --rm --name nikto -v ${HOME}:/home/nikto alexandreoda/nikto```
+### DOCKER RUN
 
-## USE
+```docker run -ti --rm --name nikto -v ${HOME}:/home/nikto alexandreoda/nikto
+```
 
-```sudo service tor start && sudo service privoxy start && nikto -h http://lesite.com -useproxy```
+### DOCKER COMPOSE
+
+```yml
+version: "3.7"
+
+services:
+  nikto:
+    container_name: nikto
+    image: alexandreoda/nikto
+    restart: no
+    privileged: false
+    volumes:
+      - "${HOME}:/home/nikto"
+```
 
 ## LICENSE
 
